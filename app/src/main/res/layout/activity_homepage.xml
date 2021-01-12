@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/mainScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/complain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF8C00"
+            android:orientation="vertical"
+            android:layout_weight="0.5"
+            android:onClick="onComplainClick"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/complaints"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2px"
+                android:text="Register Complain"
+                android:textSize="40dp"
+
+                android:textColor="#FFFFFF"
+                ></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:onClick="checkStatus"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:src="@drawable/status"></ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2px"
+                android:text="Check Status"
+                android:textSize="40dp"
+
+                android:textColor="#FF8C00"
+                ></TextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="10dp"
+            android:text="Register Complaint"
+            android:textSize="40dp"
+            android:layout_alignStart="@+id/location"
+            android:textColor="#fff"
+            android:layout_alignLeft="@+id/location"></TextView>
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="22dp"
+            android:hint="Enter Location"
+            android:textColorHint="#FFF"
+            android:background="@drawable/textbox"
+            android:textColor="#fff"
+            android:padding="8dp"
+            android:maxLines="1"
+            android:inputType="text"></EditText>
+        <ImageView
+            android:id="@+id/gps"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignBottom="@+id/location"
+            android:layout_toRightOf="@+id/location"
+            android:layout_marginRight="22dp"
+            android:src="@drawable/gps"
+            android:onClick="onLocationClick"
+            android:background="@drawable/textbox"></ImageView>
+        <TextView
+            android:id="@+id/issue"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_below="@+id/location"
+            android:text="Enter Issue"
+            android:textColor="#fff"
+            android:padding="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignStart="@+id/location"
+            android:layout_alignLeft="@+id/location"></TextView>
+        <Spinner
+            android:id="@+id/issues"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/location"
+            android:layout_toRightOf="@+id/issue"
+            android:background="@drawable/textbox"
+
+            android:layout_alignEnd="@+id/gps"
+            android:layout_marginTop="25dp"
+
+            android:layout_alignRight="@+id/gps"></Spinner>
+        <EditText
+            android:id="@+id/other"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignStart="@+id/location"
+            android:layout_alignEnd="@+id/gps"
+            android:hint="Please describe Issue"
+            android:textColorHint="#FFF"
+
+            android:background="@drawable/textbox"
+            android:textColor="#fff"
+            android:padding="8dp"
+            android:maxLines="1"
+            android:inputType="text"
+            android:layout_below="@+id/issue"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_alignRight="@+id/gps"
+            android:layout_alignLeft="@+id/location"></EditText>
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_below="@id/other"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textbox"
+            android:layout_centerHorizontal="true"
+            android:onClick="uploadImage"
+            android:padding="8dp"
+            android:text="Upload Image"
+            android:textColor="#fff"></Button>
+        <ImageView
+            android:id="@+id/issueImage"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@id/upload"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"></ImageView>
+
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/location"
+
+            android:background="@drawable/textbox"
+            android:padding="8dp"
+            android:text="Go Back"
+            android:textColor="#fff"
+            android:layout_below="@+id/issueImage"
+            android:layout_marginTop="10dp"
+            android:onClick="mainBack"
+            android:maxLines="1"
+            android:inputType="text"
+            android:layout_alignLeft="@+id/location"></Button>
+        <Button
+            android:id="@+id/RegisterComplain"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+
+            android:layout_alignEnd="@+id/gps"
+            android:background="@drawable/textbox"
+            android:padding="8dp"
+            android:text="Register Complain"
+            android:textColor="#fff"
+
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/issueImage"
+            android:layout_marginTop="10dp"
+            android:onClick="register"
+            android:maxLines="1"
+            android:inputType="text"
+            android:layout_alignRight="@+id/gps"></Button>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fetchStatus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="CheckStatus"
+            android:textSize="40dp"
+            android:textColor="#FF8C00"
+            android:layout_centerHorizontal="true"
+            ></TextView>
+        >
+
+        <EditText
+            android:id="@+id/complaintnumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/statustb"
+            android:layout_below="@id/tv"
+            android:layout_marginTop="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Enter complaint number"
+            android:textColorHint="#FF8C00"
+            android:textSize="25dp"
+            android:padding="8dp"
+            android:textColor="#FF8C00"
+            android:maxLines="1"
+            android:inputType="text"></EditText>
+        <Button
+            android:id="@+id/checkbutton"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/statustb"
+            android:layout_below="@id/complaintnumber"
+            android:layout_marginTop="60dp"
+            android:layout_centerInParent="true"
+            android:hint="Check Status"
+            android:textColorHint="#FF8C00"
+            android:textSize="20dp"
+            android:padding="8dp"
+            android:textColor="#FF8C00"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="check"></Button>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@drawable/statustb"
+            android:layout_below="@id/checkbutton"
+            android:layout_marginTop="60dp"
+            android:layout_centerInParent="true"
+            android:hint="Go back"
+            android:textColorHint="#FF8C00"
+            android:textSize="20dp"
+            android:padding="8dp"
+            android:textColor="#FF8C00"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="mainBack"></Button>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
