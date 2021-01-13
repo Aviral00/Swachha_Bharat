@@ -30,7 +30,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class background_homepage extends AsyncTask<String, Void, String> {
 
-
+    String email;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
     AlertDialog dialog;
@@ -54,9 +54,9 @@ public class background_homepage extends AsyncTask<String, Void, String> {
         dialog.show();
         if(s.contains("Complaint registered successfully"))
         {
-            Intent intent_name = new Intent();
-            intent_name.setClass(context.getApplicationContext(),homepage.class);
-            context.startActivity(intent_name);
+            Intent intent = new Intent(context.getApplicationContext(), homepage.class);
+            intent.putExtra("email_2", email);
+            context.startActivity(intent);
         }
     }
 
@@ -68,7 +68,7 @@ public class background_homepage extends AsyncTask<String, Void, String> {
         String email_2 = voids[2];
         String image_string = voids[3];
         String connstr = "https://192.168.0.115/update.php";
-
+        email = email_2;
 
         try {
 

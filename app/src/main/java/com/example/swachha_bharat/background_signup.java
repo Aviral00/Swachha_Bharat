@@ -30,6 +30,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class background_signup extends AsyncTask<String, Void, String> {
 
+    String email_1;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
     AlertDialog dialog;
@@ -53,9 +55,9 @@ public class background_signup extends AsyncTask<String, Void, String> {
         dialog.show();
         if(s.contains("Signup Successful"))
         {
-            Intent intent_name = new Intent();
-            intent_name.setClass(context.getApplicationContext(),homepage.class);
-            context.startActivity(intent_name);
+            Intent intent = new Intent(context.getApplicationContext(), homepage.class);
+            intent.putExtra("email_2", email_1);
+            context.startActivity(intent);
         }
     }
 
@@ -67,7 +69,7 @@ public class background_signup extends AsyncTask<String, Void, String> {
         String phone = voids[2];
         String pass = voids[3];
         String connstr = "https://192.168.0.115/signup.php";
-
+        email_1 = email;
 
 
         try {
