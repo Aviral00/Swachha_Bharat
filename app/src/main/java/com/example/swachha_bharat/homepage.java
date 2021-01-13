@@ -52,7 +52,7 @@ public class homepage extends AppCompatActivity {
     boolean upW = false, downW = false;
     EditText loc, oth;
     ImageView curLoc, issueImage;
-    Button upload;
+    Button upload, log;
     Location gps_loc;
     Location network_loc;
     Location final_loc;
@@ -85,6 +85,7 @@ public class homepage extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.issues);
         cno=findViewById(R.id.complaintnumber);
         fetchStatus = findViewById(R.id.fetchStatus);//New
+        log=findViewById(R.id.logButton);
         Intent intent = this.getIntent();
         if(intent !=null)
             email_2 = intent.getStringExtra("email_2");
@@ -137,6 +138,7 @@ public class homepage extends AppCompatActivity {
     //Animation to slide down complain register
     public void slideDown(final View view1, View view2, View view3, View view4) {
         if (upW == false) {
+            log.setVisibility(View.GONE);
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.VISIBLE);
             view4.setVisibility(View.VISIBLE);
@@ -157,8 +159,7 @@ public class homepage extends AppCompatActivity {
             animate2.setFillAfter(true);
             view2.startAnimation(animate2);
             upW = true;
-
-
+            downW = true;
         }
     }
 
@@ -169,8 +170,14 @@ public class homepage extends AppCompatActivity {
 
     }
 
+    public void logOut(View view){
+        Intent intent = new Intent(homepage.this, signin.class);
+        startActivity(intent);
+    }
+
     public void slideUp(final View view1, View view2, View view3, View view4) {
         if (downW == false) {
+            log.setVisibility(View.GONE);
             view1.setVisibility(View.VISIBLE);
             view2.setVisibility(View.VISIBLE);
 
@@ -210,6 +217,8 @@ public class homepage extends AppCompatActivity {
 
         String cid=cno.getText().toString();
         cno.setText("");
+        background_status bk = new background_status(this);
+        bk.execute(cid);
 
     }
 

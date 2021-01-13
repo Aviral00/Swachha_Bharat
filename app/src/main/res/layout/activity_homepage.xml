@@ -36,6 +36,7 @@
 
                 android:textColor="#FFFFFF"
                 ></TextView>
+
         </LinearLayout>
 
         <LinearLayout
@@ -272,5 +273,19 @@
 
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/statustb"
+        android:backgroundTint="#A5F714"
+        android:hint="Log Out"
+        android:onClick="logOut"
+        android:padding="8dp"
+        android:textColorHint="#FFF"
+        android:textSize="20dp"></Button>
 
 </RelativeLayout>
